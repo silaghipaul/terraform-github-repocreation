@@ -1,6 +1,6 @@
 variable "repo_name" {
   type = string
-  description = "The repo name of the github repo to be created"
+  description = "The repository name of the github repo to be created"
   default = "one-repo-to-rule-them-all"
   sensitive = false
 }
