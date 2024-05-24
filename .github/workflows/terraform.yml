@@ -85,7 +85,7 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
-      run: terraform plan -input=false
+      run: terraform plan -input=false -out=planfile
 
   terraform-apply:
     name: 'Terraform Apply'
@@ -110,4 +110,4 @@ jobs:
         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
         
     - name: Terraform Apply
-      run: terraform apply -auto-approve -input=false
+      run: terraform apply "planfile" -auto-approve -input=false
