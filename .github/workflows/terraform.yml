@@ -91,7 +91,7 @@ jobs:
   terraform-apply:
     name: 'Terraform Apply'
     runs-on: ubuntu-latest
-    #environment: production
+    environment: production
     if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
@@ -112,3 +112,11 @@ jobs:
         
     - name: Terraform Apply
       run: terraform apply "planfile" -auto-approve -input=false
+
+    - name: Print Context
+      run: |
+        echo "Event name: ${{ github.event_name }}"
+        echo "Branch: ${{ github.ref }}"
+        echo "Actor: ${{ github.actor }}"
+        echo "Repository: ${{ github.repository }}"
+        echo "Environment: ${{ toJson(github.event) }}"
