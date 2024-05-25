@@ -15,6 +15,7 @@ jobs:
   terraform-pr:
     name: 'Terraform PR Check'
     runs-on: ubuntu-latest
+    environment: production
     if: github.event_name == 'pull_request'
 
     defaults:
@@ -39,6 +40,7 @@ jobs:
   terraform-apply:
     name: 'Terraform Apply'
     runs-on: ubuntu-latest
+    environment: production
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
 
     defaults:
