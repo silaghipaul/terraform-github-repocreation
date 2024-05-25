@@ -41,7 +41,7 @@ jobs:
     name: 'Terraform Apply'
     runs-on: ubuntu-latest
     environment: production
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
 
     defaults:
       run:
