@@ -9,7 +9,9 @@ terraform {
   }
 }
 
-provider "github" {}
+provider "github" {
+  token ="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"
+}
 
 module "github_repo_module" {
   source = "../../"
